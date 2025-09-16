@@ -57,14 +57,14 @@ const ProductFilters: React.FC<ProductFiltersProps> = ({
   const maxPercentage = (priceRange[1] / maxPrice) * 100;
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-5">
+    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-5">
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-lg font-semibold text-gray-800 flex items-center">
-          <Sliders className="h-5 w-5 mr-2 text-indigo-600" />
+        <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-200 flex items-center">
+          <Sliders className="h-5 w-5 mr-2 text-indigo-600 dark:text-indigo-400" />
           Filters
         </h2>
         <button 
-          className="text-sm text-indigo-600 hover:text-indigo-800 transition-colors"
+          className="text-sm text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors"
           onClick={() => {
             onCategoryChange("");
             onPriceRangeChange([0, maxPrice]);
@@ -75,15 +75,15 @@ const ProductFilters: React.FC<ProductFiltersProps> = ({
       </div>
 
       {/* Categories Section */}
-      <div className="mb-6 border-b border-gray-200 pb-6">
+      <div className="mb-6 border-b border-gray-200 dark:border-gray-700 pb-6">
         <button 
           className="flex items-center justify-between w-full text-left mb-4"
           onClick={() => toggleSection('categories')}
         >
-          <h3 className="font-medium text-gray-800">Categories</h3>
+          <h3 className="font-medium text-gray-800 dark:text-gray-200">Categories</h3>
           {expandedSections.categories ? 
-            <ChevronUp className="h-4 w-4 text-gray-600" /> : 
-            <ChevronDown className="h-4 w-4 text-gray-600" />
+            <ChevronUp className="h-4 w-4 text-gray-600 dark:text-gray-400" /> : 
+            <ChevronDown className="h-4 w-4 text-gray-600 dark:text-gray-400" />
           }
         </button>
         
@@ -91,38 +91,38 @@ const ProductFilters: React.FC<ProductFiltersProps> = ({
           <div className="space-y-2 animate-fadeIn">
             <div 
               className={`flex items-center cursor-pointer p-2 rounded-md transition-colors ${
-                selectedCategory === "" ? "bg-indigo-50" : "hover:bg-gray-50"
+                selectedCategory === "" ? "bg-indigo-50 dark:bg-indigo-900/30" : "hover:bg-gray-50 dark:hover:bg-gray-700/50"
               }`}
               onClick={() => onCategoryChange("")}
             >
               <div className={`h-4 w-4 rounded border flex items-center justify-center ${
-                selectedCategory === "" ? "border-indigo-600 bg-indigo-600" : "border-gray-300"
+                selectedCategory === "" ? "border-indigo-600 dark:border-indigo-400 bg-indigo-600 dark:bg-indigo-500" : "border-gray-300 dark:border-gray-600"
               }`}>
                 {selectedCategory === "" && <Check className="h-3 w-3 text-white" />}
               </div>
               <span className={`ml-2 ${
-                selectedCategory === "" ? "text-indigo-600 font-medium" : "text-gray-700"
+                selectedCategory === "" ? "text-indigo-600 dark:text-indigo-400 font-medium" : "text-gray-700 dark:text-gray-300"
               }`}>
                 All Categories
               </span>
-              <span className="ml-auto text-xs text-gray-500">({categories.length})</span>
+              <span className="ml-auto text-xs text-gray-500 dark:text-gray-400">({categories.length})</span>
             </div>
             
             {categories.map((category) => (
               <div 
                 key={category}
                 className={`flex items-center cursor-pointer p-2 rounded-md transition-colors ${
-                  selectedCategory === category ? "bg-indigo-50" : "hover:bg-gray-50"
+                  selectedCategory === category ? "bg-indigo-50 dark:bg-indigo-900/30" : "hover:bg-gray-50 dark:hover:bg-gray-700/50"
                 }`}
                 onClick={() => onCategoryChange(category)}
               >
                 <div className={`h-4 w-4 rounded border flex items-center justify-center ${
-                  selectedCategory === category ? "border-indigo-600 bg-indigo-600" : "border-gray-300"
+                  selectedCategory === category ? "border-indigo-600 dark:border-indigo-400 bg-indigo-600 dark:bg-indigo-500" : "border-gray-300 dark:border-gray-600"
                 }`}>
                   {selectedCategory === category && <Check className="h-3 w-3 text-white" />}
                 </div>
                 <span className={`ml-2 ${
-                  selectedCategory === category ? "text-indigo-600 font-medium" : "text-gray-700"
+                  selectedCategory === category ? "text-indigo-600 dark:text-indigo-400 font-medium" : "text-gray-700 dark:text-gray-300"
                 }`}>
                   {category}
                 </span>
@@ -133,15 +133,15 @@ const ProductFilters: React.FC<ProductFiltersProps> = ({
       </div>
 
       {/* Price Range Section */}
-      <div className="mb-6 border-b border-gray-200 pb-6">
+      <div className="mb-6 border-b border-gray-200 dark:border-gray-700 pb-6">
         <button 
           className="flex items-center justify-between w-full text-left mb-4"
           onClick={() => toggleSection('price')}
         >
-          <h3 className="font-medium text-gray-800">Price Range</h3>
+          <h3 className="font-medium text-gray-800 dark:text-gray-200">Price Range</h3>
           {expandedSections.price ? 
-            <ChevronUp className="h-4 w-4 text-gray-600" /> : 
-            <ChevronDown className="h-4 w-4 text-gray-600" />
+            <ChevronUp className="h-4 w-4 text-gray-600 dark:text-gray-400" /> : 
+            <ChevronDown className="h-4 w-4 text-gray-600 dark:text-gray-400" />
           }
         </button>
         
@@ -149,38 +149,38 @@ const ProductFilters: React.FC<ProductFiltersProps> = ({
           <div className="animate-fadeIn">
             <div className="flex items-center justify-between mb-4">
               <div className="w-[45%]">
-                <label htmlFor="min-price" className="block text-sm text-gray-600 mb-1">Min</label>
+                <label htmlFor="min-price" className="block text-sm text-gray-600 dark:text-gray-400 mb-1">Min</label>
                 <div className="relative">
-                  <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">$</span>
+                  <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400">$</span>
                   <input
                     type="number"
                     id="min-price"
                     value={priceRange[0]}
                     onChange={handlePriceMinChange}
-                    className="w-full pl-8 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                    className="w-full pl-8 pr-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                   />
                 </div>
               </div>
-              <div className="text-gray-400">to</div>
+              <div className="text-gray-400 dark:text-gray-500">to</div>
               <div className="w-[45%]">
-                <label htmlFor="max-price" className="block text-sm text-gray-600 mb-1">Max</label>
+                <label htmlFor="max-price" className="block text-sm text-gray-600 dark:text-gray-400 mb-1">Max</label>
                 <div className="relative">
-                  <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">$</span>
+                  <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400">$</span>
                   <input
                     type="number"
                     id="max-price"
                     value={priceRange[1]}
                     onChange={handlePriceMaxChange}
-                    className="w-full pl-8 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                    className="w-full pl-8 pr-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                   />
                 </div>
               </div>
             </div>
             
             <div className="relative mt-8 px-2">
-              <div className="h-1 bg-gray-200 rounded-full">
+              <div className="h-1 bg-gray-200 dark:bg-gray-600 rounded-full">
                 <div 
-                  className="absolute h-1 bg-indigo-600 rounded-full"
+                  className="absolute h-1 bg-indigo-600 dark:bg-indigo-500 rounded-full"
                   style={{
                     left: `${minPercentage}%`,
                     right: `${100 - maxPercentage}%`
@@ -216,7 +216,7 @@ const ProductFilters: React.FC<ProductFiltersProps> = ({
                 }}
               />
               
-              <div className="flex justify-between mt-4 text-xs text-gray-500">
+              <div className="flex justify-between mt-4 text-xs text-gray-500 dark:text-gray-400">
                 <span>$0</span>
                 <span>${Math.round(maxPrice / 2)}</span>
                 <span>${maxPrice}</span>
@@ -232,10 +232,10 @@ const ProductFilters: React.FC<ProductFiltersProps> = ({
           className="flex items-center justify-between w-full text-left mb-4"
           onClick={() => toggleSection('rating')}
         >
-          <h3 className="font-medium text-gray-800">Rating</h3>
+          <h3 className="font-medium text-gray-800 dark:text-gray-200">Rating</h3>
           {expandedSections.rating ? 
-            <ChevronUp className="h-4 w-4 text-gray-600" /> : 
-            <ChevronDown className="h-4 w-4 text-gray-600" />
+            <ChevronUp className="h-4 w-4 text-gray-600 dark:text-gray-400" /> : 
+            <ChevronDown className="h-4 w-4 text-gray-600 dark:text-gray-400" />
           }
         </button>
         
@@ -244,25 +244,25 @@ const ProductFilters: React.FC<ProductFiltersProps> = ({
             {[5, 4, 3, 2, 1].map((rating) => (
               <div 
                 key={rating}
-                className="flex items-center cursor-pointer p-2 rounded-md hover:bg-gray-50 transition-colors"
+                className="flex items-center cursor-pointer p-2 rounded-md hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors"
               >
-                <div className="h-4 w-4 rounded border border-gray-300"></div>
+                <div className="h-4 w-4 rounded border border-gray-300 dark:border-gray-600"></div>
                 <div className="ml-2 flex items-center">
                   {[...Array(rating)].map((_, i) => (
                     <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                   ))}
                   {[...Array(5 - rating)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 text-gray-300" />
+                    <Star key={i} className="h-4 w-4 text-gray-300 dark:text-gray-600" />
                   ))}
                 </div>
-                <span className="ml-1 text-sm text-gray-700">& Up</span>
+                <span className="ml-1 text-sm text-gray-700 dark:text-gray-300">& Up</span>
               </div>
             ))}
           </div>
         )}
       </div>
 
-      <button className="w-full bg-indigo-600 text-white py-2 px-4 rounded-lg hover:bg-indigo-700 transition-colors">
+      <button className="w-full bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 text-white py-2 px-4 rounded-lg transition-colors">
         Apply Filters
       </button>
     </div>
