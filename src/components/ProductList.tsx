@@ -46,18 +46,18 @@ const ProductList: React.FC<ProductListProps> = ({ products, loading = false }) 
     return (
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {[...Array(8)].map((_, index) => (
-          <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
-            <div className="h-56 bg-gray-200 animate-pulse"></div>
+          <div key={index} className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+            <div className="h-56 bg-gray-200 dark:bg-gray-700 animate-pulse"></div>
             <div className="p-4 space-y-3">
-              <div className="h-4 bg-gray-200 rounded animate-pulse"></div>
-              <div className="h-4 w-1/2 bg-gray-200 rounded animate-pulse"></div>
+              <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+              <div className="h-4 w-1/2 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
               <div className="flex space-x-1 mt-1">
                 {[...Array(5)].map((_, i) => (
-                  <div key={i} className="h-4 w-4 bg-gray-200 rounded animate-pulse"></div>
+                  <div key={i} className="h-4 w-4 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
                 ))}
               </div>
-              <div className="h-6 bg-gray-200 rounded animate-pulse"></div>
-              <div className="h-10 bg-gray-200 rounded animate-pulse"></div>
+              <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+              <div className="h-10 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
             </div>
           </div>
         ))}
@@ -67,9 +67,9 @@ const ProductList: React.FC<ProductListProps> = ({ products, loading = false }) 
 
   if (products.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center py-16 bg-white rounded-lg shadow-md">
+      <div className="flex flex-col items-center justify-center py-16 bg-white dark:bg-gray-800 rounded-lg shadow-md">
         <svg
-          className="w-20 h-20 text-gray-400 mb-6"
+          className="w-20 h-20 text-gray-400 dark:text-gray-500 mb-6"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -82,11 +82,11 @@ const ProductList: React.FC<ProductListProps> = ({ products, loading = false }) 
             d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
           ></path>
         </svg>
-        <h3 className="text-xl font-medium text-gray-900 mb-2">No products found</h3>
-        <p className="text-gray-500 text-center max-w-md mb-6">
+        <h3 className="text-xl font-medium text-gray-900 dark:text-gray-100 mb-2">No products found</h3>
+        <p className="text-gray-500 dark:text-gray-400 text-center max-w-md mb-6">
           We couldn't find any products matching your current filters. Try adjusting your search criteria or browse our other categories.
         </p>
-        <button className="bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition-colors">
+        <button className="bg-indigo-600 dark:bg-indigo-500 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 dark:hover:bg-indigo-600 transition-colors">
           Clear Filters
         </button>
       </div>
@@ -118,9 +118,9 @@ const ProductList: React.FC<ProductListProps> = ({ products, loading = false }) 
               disabled={currentPage === 1}
               className={`flex items-center justify-center h-10 w-10 rounded-l-md border ${
                 currentPage === 1
-                  ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                  : 'bg-white text-gray-700 hover:bg-gray-50'
-              }`}
+                  ? 'bg-gray-100 dark:bg-gray-700 text-gray-400 dark:text-gray-500 cursor-not-allowed'
+                  : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
+              } border-gray-300 dark:border-gray-600`}
             >
               <ChevronLeft className="h-5 w-5" />
             </button>
@@ -143,7 +143,7 @@ const ProductList: React.FC<ProductListProps> = ({ products, loading = false }) 
                   return (
                     <span 
                       key={pageNumber} 
-                      className="flex items-center justify-center h-10 w-10 border-t border-b bg-white text-gray-500"
+                      className="flex items-center justify-center h-10 w-10 border-t border-b border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400"
                     >
                       ...
                     </span>
@@ -155,10 +155,10 @@ const ProductList: React.FC<ProductListProps> = ({ products, loading = false }) 
                     <button
                       key={pageNumber}
                       onClick={() => paginate(pageNumber)}
-                      className={`flex items-center justify-center h-10 w-10 border-t border-b ${
+                      className={`flex items-center justify-center h-10 w-10 border-t border-b border-gray-300 dark:border-gray-600 ${
                         currentPage === pageNumber
-                          ? 'bg-indigo-600 text-white font-medium'
-                          : 'bg-white text-gray-700 hover:bg-gray-50'
+                          ? 'bg-indigo-600 dark:bg-indigo-500 text-white font-medium'
+                          : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
                       }`}
                     >
                       {pageNumber}
@@ -171,8 +171,8 @@ const ProductList: React.FC<ProductListProps> = ({ products, loading = false }) 
             </div>
             
             {/* Mobile pagination indicator */}
-            <div className="sm:hidden flex items-center justify-center h-10 px-4 border-t border-b bg-white">
-              <span className="text-sm text-gray-700">
+            <div className="sm:hidden flex items-center justify-center h-10 px-4 border-t border-b border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800">
+              <span className="text-sm text-gray-700 dark:text-gray-300">
                 Page {currentPage} of {totalPages}
               </span>
             </div>
@@ -182,9 +182,9 @@ const ProductList: React.FC<ProductListProps> = ({ products, loading = false }) 
               disabled={currentPage === totalPages}
               className={`flex items-center justify-center h-10 w-10 rounded-r-md border ${
                 currentPage === totalPages
-                  ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                  : 'bg-white text-gray-700 hover:bg-gray-50'
-              }`}
+                  ? 'bg-gray-100 dark:bg-gray-700 text-gray-400 dark:text-gray-500 cursor-not-allowed'
+                  : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700'
+              } border-gray-300 dark:border-gray-600`}
             >
               <ChevronRight className="h-5 w-5" />
             </button>
@@ -193,7 +193,7 @@ const ProductList: React.FC<ProductListProps> = ({ products, loading = false }) 
       )}
       
       {/* Results count */}
-      <div className="mt-6 text-center text-sm text-gray-500">
+      <div className="mt-6 text-center text-sm text-gray-500 dark:text-gray-400">
         Showing {indexOfFirstProduct + 1}-{Math.min(indexOfLastProduct, products.length)} of {products.length} products
       </div>
     </div>
