@@ -71,7 +71,7 @@ function App() {
   }, [selectedCategory, sortOption, priceRange]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 transition-colors duration-200">
       <PromoBar />
       <Header />
       
@@ -102,8 +102,8 @@ function App() {
           
           {/* Main Product Section */}
           <div className="mb-8">
-            <h1 className="text-3xl font-bold text-gray-800">Our Products</h1>
-            <p className="text-gray-600 mt-2">Discover our wide range of high-quality products</p>
+            <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-100">Our Products</h1>
+            <p className="text-gray-600 dark:text-gray-400 mt-2">Discover our wide range of high-quality products</p>
           </div>
           
           <div className="flex flex-col md:flex-row gap-6">
